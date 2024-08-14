@@ -1,0 +1,63 @@
+<form method="POST">
+    <h1>City <input type = "text" id="City" name = "city" required/></h1>
+    <button type = "submit">Submit</button>
+</form>
+
+
+{% if city %}
+<h1>The forecast for: {{city}}</h1>
+ <table border="1">
+        <tr>
+            <th> </th>
+            <th>Day</th>
+            <th>Max Temperature</th>
+            <th>Min Temperature</th>
+            <th>Avg Temperature</th>
+            <th>Humidity</th>
+            <th>Max wind speed</th>
+            <th>Precipitation mm</th>
+            <th>Chance of rain</th>
+            <th>UV</th>
+            <th>Sunrise hour</th>
+            <th>Sunset hour</th>
+        </tr>
+        {% for item in items %}
+     <tr>
+         <td><img src={{item.value10}}></td>
+         <td>{{item.value1}}</td>
+         <td>{{item.value2}}</td>
+         <td>{{item.value3}}</td>
+         <td>{{item.value4}}</td>
+         <td>{{item.value5}}</td>
+         <td>{{item.value6}}</td>
+         <td>{{item.value7}}</td>
+         <td>{{item.value8}}</td>
+         <td>{{item.value9}}</td>
+         <td>{{item.value11}}</td>
+         <td>{{item.value12}}</td>
+
+     </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+{% if error%}
+<p>The city name was typed incorrectly</p>
+
+{% endif %}
+<style>
+    table,th,td{
+    border:2px solid;
+    border-color:DarkSlateBlue;
+
+    background-color:Cyan;
+    }
+    td{
+    text-align:center;
+
+    }
+    button{
+    font-size:20px;
+    background-color:DeepSlateBlue;
+    }
+
+</style>
